@@ -15,7 +15,35 @@ SinglyLinkedList::SinglyLinkedList(Node* node) {
 }
 
 SinglyLinkedList::~SinglyLinkedList() {}
-// endregio desconstructor
+// endregion desconstructor
+
+// return the node with the given index
+Node* SinglyLinkedList:: Get(int index) {
+    // if the index is negative, return null
+    if (index < 0) {
+        return NULL;
+    } else
+    // if the index is higher than the count, return null
+    if (index > count) {
+        return NULL;
+    } else
+    // if the inde is 0, return the first element
+    if (index == 0) {
+        return GetFirst();
+    } else
+    // if the index is equal to count, return the last element
+    if (index == count) {
+        return GetLast();
+    } else {
+        int counter = 0;
+        Node* node = head;
+        while (counter <= index) {
+            node = node->GetNext();
+            counter++;
+        }
+        return node;
+    }
+}
 
 // return the first node in the list
 Node* SinglyLinkedList:: GetFirst() {
@@ -27,7 +55,7 @@ Node* SinglyLinkedList:: GetLast() {
     return tail;
 }
 
-void SinglyLinkedList::Push(Node* node) {
+void SinglyLinkedList:: Push(Node* node) {
     // set the next from current tail to the added node
     tail->SetNext(node);
     // set the added node as the tail
@@ -67,7 +95,7 @@ void SinglyLinkedList:: RemoveFirst() {
     return;
 }
 
-void SinglyLinkedList::Remove(Node* node) {
+void SinglyLinkedList:: Remove(Node* node) {
     // reference to the head node
     Node* node = head;
     // loop through all the nodes
@@ -79,7 +107,7 @@ void SinglyLinkedList::Remove(Node* node) {
     return;
 }
 
-void SinglyLinkedList::RemoveAt(int index) {
+void SinglyLinkedList:: RemoveAt(int index) {
     // check if the index is positive
     if (index < 0)
         return;
@@ -112,7 +140,7 @@ void SinglyLinkedList::RemoveAt(int index) {
     return;
 }
 
-void SinglyLinkedList::Clear() {
+void SinglyLinkedList:: Clear() {
     // remove from last until the node count is zero
     while (count > 0) {
         RemoveLast();
@@ -120,6 +148,6 @@ void SinglyLinkedList::Clear() {
     return;
 }
 
-int SinglyLinkedList::Count() {
+int SinglyLinkedList:: Count() {
     return count;
 }

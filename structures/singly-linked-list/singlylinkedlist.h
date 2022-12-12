@@ -6,6 +6,7 @@ class SinglyLinkedList {
         SinglyLinkedList(Node* origin);
         ~SinglyLinkedList();
         
+        Node* Get(int index);
         Node* GetFirst();
         Node* GetLast();
 

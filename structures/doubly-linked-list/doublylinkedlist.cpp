@@ -15,6 +15,30 @@ DoublyLinkedList:: DoublyLinkedList(DoubleNode* origin){
 
 DoublyLinkedList:: ~DoublyLinkedList(){}
 
+DoubleNode* DoublyLinkedList:: Get(int index) {
+    // if index is below zero or higher than count, return null
+    if (index < 0 || index > count) {
+        return NULL;
+    } else
+    // if index is equal zero, return the first element
+    if (index == 0) {
+        return GetFirst();
+    } else
+    // if index is equal count, return the last element
+    if (index == count) {
+        return GetLast();
+    }
+    // else loop through all nodes
+    else {
+        int counter = 0;
+        DoubleNode* node = head;
+        while (counter <= index) {
+            node = node->GetNext();
+        }
+        return node;
+    }
+}
+
 DoubleNode* DoublyLinkedList:: GetFirst() {
     return head;
 }

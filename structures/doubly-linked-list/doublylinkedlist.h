@@ -6,6 +6,7 @@ class DoublyLinkedList {
         DoublyLinkedList(DoubleNode* origin);
         virtual ~DoublyLinkedList();
 
+        DoubleNode* Get(int index);
         DoubleNode* GetFirst();
         DoubleNode* GetLast();
 
